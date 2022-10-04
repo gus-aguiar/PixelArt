@@ -91,4 +91,5 @@ function limpaTudo(){
         listaPixel[index].style.backgroundColor = 'white'
     }
 }
+
 botaoLimpa.addEventListener('click', limpaTudo)
