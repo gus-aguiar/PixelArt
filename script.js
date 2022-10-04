@@ -49,7 +49,7 @@ function criaCaixas(numero) {
     for (let key = 0; key < numero; key += 1) {
       const square = document.createElement('div');
       square.className = 'pixel';
-      square.backgroundColor = 'white'
+    //   square.backgroundColor = 'white'
       row.appendChild(square);
     }
   }
