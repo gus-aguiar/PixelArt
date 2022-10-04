@@ -59,14 +59,22 @@ function criaCaixas(numero) {
 criaCaixas(5);
 
 // seleciona a cor 
+let corSelecionada = 'black'
 
 function selecionaCor (event) {
     const techElement = document.querySelector('.selected');
     techElement.classList.remove('selected');
     event.target.classList.add('selected');
-    input.value = '';
+    corSelecionada = event.target.style.backgroundColor;
   }
   trocaCorUm.addEventListener('click', selecionaCor);
   trocaCorDois.addEventListener('click', selecionaCor);
   trocaCorTres.addEventListener('click', selecionaCor);
   trocaCorQuatro.addEventListener('click', selecionaCor);
+ 
+
+  //colore quadrinho
+  function coloreQuadrinho (event){
+    const pixel = document.getElementsByClassName('pixel')
+    event.target.style.backgroundColor = corSelecionada
+  }
