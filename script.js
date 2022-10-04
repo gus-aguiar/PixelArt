@@ -82,16 +82,13 @@ function selecionapixel (event) {
   for (let index = 0; index < pixelAlvo.length; index +=1){
     pixelAlvo[index].addEventListener('click', selecionapixel);
   }
-  //limpa tudo
+//limpa tudo
 
 const botaoLimpa = document.getElementById('clear-board')
-const allPixels = document.querySelectorAll('.pixel')
 function limpaTudo(){
-    const listaPixel = document.getElementsByClassName('pixel')
+    let listaPixel = document.getElementsByClassName('pixel')
     for (let index = 0; index < listaPixel.length; index += 1 ){
         listaPixel[index].style.backgroundColor = 'white'
     }
 }
-
-
-// botaoLimpa.addEventListener('click', limpaTudo)
+botaoLimpa.addEventListener('click', limpaTudo)
