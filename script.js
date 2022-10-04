@@ -74,7 +74,18 @@ function selecionaCor (event) {
  
 
   //colore quadrinho
-  function coloreQuadrinho (event){
-    const pixel = document.getElementsByClassName('pixel')
-    event.target.style.backgroundColor = corSelecionada
+// let pixelAlvo = document.getElementsByClassName('pixel')[0]
+// for (let index in pixelAlvo){
+//     pixelAlvo[index].addEventListener('click', function colore (event){
+//         pixelAlvo[index].style.backgroundColor = corSelecionada;
+//         event.target.style.backgroundColor = corSelecionada;
+//     })
+// }
+function selecionapixel (event) {
+    const pixel = document.querySelector('.pixel');
+    event.target.style.backgroundColor = corSelecionada;
+  }
+  let pixelAlvo = document.getElementsByClassName('pixel')
+  for (index in pixelAlvo){
+    pixelAlvo[index].addEventListener('click', selecionapixel)
   }
