@@ -1,4 +1,13 @@
-
+* {
+    margin: 0px;
+    padding: 0px;}
+body {
+    background-color: rgb(253, 251, 251); 
+    font-family: helvetica;
+    font-size: small;
+    color: #0c1a1b;
+    line-height: 15px;
+}
 
 .color{
     display: inline-block;
