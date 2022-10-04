@@ -57,3 +57,16 @@ function criaCaixas(numero) {
 
 
 criaCaixas(5);
+
+// seleciona a cor 
+
+function selecionaCor (event) {
+    const techElement = document.querySelector('.selected');
+    techElement.classList.remove('selected');
+    event.target.classList.add('selected');
+    input.value = '';
+  }
+  trocaCorUm.addEventListener('click', selecionaCor);
+  trocaCorDois.addEventListener('click', selecionaCor);
+  trocaCorTres.addEventListener('click', selecionaCor);
+  trocaCorQuatro.addEventListener('click', selecionaCor);
