@@ -39,3 +39,21 @@ botao.addEventListener("click", function atribuicor (){
     }
 
 })
+
+//cria grid 
+const container = document.getElementById('pixel-board');
+
+function criaCaixas(numero) {
+  for (let index = 0; index < numero; index += 1) {
+    const row = container.appendChild(document.createElement('div'));
+    for (let key = 0; key < numero; key += 1) {
+      const square = document.createElement('div');
+      square.className = 'pixel';
+      square.backgroundColor = 'white'
+      row.appendChild(square);
+    }
+  }
+}
+
+
+criaCaixas(5);
