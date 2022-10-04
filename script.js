@@ -79,19 +79,19 @@ function selecionapixel (event) {
     event.target.style.backgroundColor = corSelecionada;
   }
   let pixelAlvo = document.getElementsByClassName('pixel');
-  for (index in pixelAlvo){
+  for (let index = 0; index < pixelAlvo.length; index +=1){
     pixelAlvo[index].addEventListener('click', selecionapixel);
   }
   //limpa tudo
 
-// const botaoLimpa = document.getElementById('clear-board')
-// const allPixels = document.querySelectorAll('.pixel')
-// function limpaTudo(){
-//     const listaPixel = document.getElementsByClassName('pixel')
-//     for (let index in listaPixel){
-//         listaPixel[index].style.backgroundColor = 'white'
-//     }
-// }
+const botaoLimpa = document.getElementById('clear-board')
+const allPixels = document.querySelectorAll('.pixel')
+function limpaTudo(){
+    const listaPixel = document.getElementsByClassName('pixel')
+    for (let index = 0; index < listaPixel.length; index += 1 ){
+        listaPixel[index].style.backgroundColor = 'white'
+    }
+}
 
 
 // botaoLimpa.addEventListener('click', limpaTudo)
