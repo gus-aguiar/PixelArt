@@ -73,19 +73,25 @@ function selecionaCor (event) {
   trocaCorQuatro.addEventListener('click', selecionaCor);
  
 
-  //colore quadrinho
-// let pixelAlvo = document.getElementsByClassName('pixel')[0]
-// for (let index in pixelAlvo){
-//     pixelAlvo[index].addEventListener('click', function colore (event){
-//         pixelAlvo[index].style.backgroundColor = corSelecionada;
-//         event.target.style.backgroundColor = corSelecionada;
-//     })
-// }
+//colore quadrinho
 function selecionapixel (event) {
     const pixel = document.querySelector('.pixel');
     event.target.style.backgroundColor = corSelecionada;
   }
-  let pixelAlvo = document.getElementsByClassName('pixel')
+  let pixelAlvo = document.getElementsByClassName('pixel');
   for (index in pixelAlvo){
-    pixelAlvo[index].addEventListener('click', selecionapixel)
+    pixelAlvo[index].addEventListener('click', selecionapixel);
   }
+  //limpa tudo
+
+// const botaoLimpa = document.getElementById('clear-board')
+// const allPixels = document.querySelectorAll('.pixel')
+// function limpaTudo(){
+//     const listaPixel = document.getElementsByClassName('pixel')
+//     for (let index in listaPixel){
+//         listaPixel[index].style.backgroundColor = 'white'
+//     }
+// }
+
+
+// botaoLimpa.addEventListener('click', limpaTudo)
