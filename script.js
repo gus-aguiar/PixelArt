@@ -54,7 +54,7 @@ botao.addEventListener("click", function atribuicor (){
   }  
 })
 
-//apaga localstorage anterior pra não dar conflito
+//apaga localstorage anterior pra não dar conflito ?????????????????? como remover ????????? 
 botao.addEventListener("click", function apagaPalleteAntigo(){
   localStorage.removeItem("colorPalette")
 })
@@ -123,3 +123,6 @@ function limpaTudo(){
 }
 
 botaoLimpa.addEventListener('click', limpaTudo)
+
+//armazena desenho
+let pegaPixel = document.getElementsByClassName('pixel')
