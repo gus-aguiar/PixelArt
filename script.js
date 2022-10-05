@@ -1,37 +1,41 @@
+let trocaCorUm = document.getElementById('colorUm')
+let trocaCorDois = document.getElementById('colorDois')
+let trocaCorTres = document.getElementById('colorTres')
+let trocaCorQuatro = document.getElementById('colorQuatro')
 window.onload = function (){
   if(localStorage.getItem('colorPalette') === null){
-// setando cores
+// setando cores inicialmente
 let corUm = 'black'
-const trocaCorUm = document.getElementById('colorUm')
+
 trocaCorUm.style.backgroundColor = corUm
 
 let corDois = 'green'
-const trocaCorDois = document.getElementById('colorDois')
+
 trocaCorDois.style.backgroundColor = corDois
 
 let corTres = 'blue'
-const trocaCorTres = document.getElementById('colorTres')
+
 trocaCorTres.style.backgroundColor = corTres
 
 let corQuatro = 'red'
-const trocaCorQuatro = document.getElementById('colorQuatro')
+
 trocaCorQuatro.style.backgroundColor = corQuatro
-  }else{
+  }else if(localStorage.getItem('colorPalette') !== null){ // caso haja cores no localstorage
      let coresRecuperadas = JSON.parse(localStorage.getItem('colorPalette'))  
       let corUm = 'black'
-      const trocaCorUm = document.getElementById('colorUm')
+      let trocaCorUm = document.getElementById('colorUm')
       trocaCorUm.style.backgroundColor = corUm
 
       let corDois = coresRecuperadas[0]
-    const trocaCorDois = document.getElementById('colorDois')
+      let trocaCorDois = document.getElementById('colorDois')
     trocaCorDois.style.backgroundColor = corDois
 
-    let corTres = coresRecuperadas[1]
-    const trocaCorTres = document.getElementById('colorTres')
+      let corTres = coresRecuperadas[1]
+      let trocaCorTres = document.getElementById('colorTres')
     trocaCorTres.style.backgroundColor = corTres
 
-    let corQuatro = coresRecuperadas[2]
-    const trocaCorQuatro = document.getElementById('colorQuatro')
+      let corQuatro = coresRecuperadas[2]
+      let trocaCorQuatro = document.getElementById('colorQuatro')
     trocaCorQuatro.style.backgroundColor = corQuatro
       }}
 //função que troca de cores
@@ -41,20 +45,20 @@ function geracor(){
     const b = Math.floor(Math.random() * 256)
     return `rgb(${r}, ${g}, ${b})`
 }
-//evento no botão
+//evento no botão que gera cores
 const pegaPaleta = document.getElementsByClassName('color')
-
 const botao = document.getElementById('button-random-color')
 botao.addEventListener("click", function atribuicor (){
   for (let index = 1; index < pegaPaleta.length; index+=1){
-    pegaPaleta[index].style.backgroundColor = geracor()
-    
-  }
-  
+    pegaPaleta[index].style.backgroundColor = geracor() 
+  }  
 })
 
+//apaga localstorage anterior pra não dar conflito
+botao.addEventListener("click", function apagaPalleteAntigo(){
+  localStorage.removeItem("colorPalette")
+})
 //armazena cores
-
 let arrayCores = []
 botao.addEventListener("click", function armazenaCores(){  
   for(let index = 1; index < pegaPaleta.length ; index += 1){
@@ -88,7 +92,7 @@ criaCaixas(5);
 let corSelecionada = 'black'
 
 function selecionaCor (event) {
-    const techElement = document.querySelector('.selected');
+    let techElement = document.querySelector('.selected');
     techElement.classList.remove('selected');
     event.target.classList.add('selected');
     corSelecionada = event.target.style.backgroundColor;
