@@ -37,8 +37,22 @@ trocaCorQuatro.style.backgroundColor = corQuatro
       let corQuatro = coresRecuperadas[2]
       let trocaCorQuatro = document.getElementById('colorQuatro')
     trocaCorQuatro.style.backgroundColor = corQuatro
-      }}
-//função que troca de cores
+      }
+      if(localStorage.getItem('pixelBoard') !== null){
+        let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'))
+        for(let index = 0 ; index < pegaPixel.length ; index += 1){
+          pegaPixel[index].style.backgroundColor = desenhosRecuperados[index]
+    
+    
+    }
+  }
+}
+
+
+
+
+
+      //função que troca de cores
 function geracor(){
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)
@@ -53,6 +67,7 @@ botao.addEventListener("click", function atribuicor (){
     pegaPaleta[index].style.backgroundColor = geracor() 
   }  
 })
+
 
 //apaga localstorage anterior pra não dar conflito ?????????????????? como remover ????????? 
 botao.addEventListener("click", function apagaPalleteAntigo(){
@@ -124,5 +139,24 @@ function limpaTudo(){
 
 botaoLimpa.addEventListener('click', limpaTudo)
 
-//armazena desenho
+//captura desenho
 let pegaPixel = document.getElementsByClassName('pixel')
+let coresAntigasArray = []
+for(let index = 0 ; index < pegaPixel.length ; index += 1){
+pegaPixel[index].addEventListener('click', function armazenadesenho (){
+  for (let index = 0 ; index < pegaPixel.length; index += 1){
+    coresAntigasArray.push(pegaPixel[index].style.backgroundColor)
+    localStorage.setItem("pixelBoard", JSON.stringify(coresAntigasArray))
+  }
+}
+)
+}
+//reprinta desenho
+// window.onload = function(){
+//   if(localStorage.getItem('pixelBoard') !== null){
+//   let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'))
+//   for(let index = 0 ; index < pegaPixel.length ; index += 1){
+//     pegaPixel[index].style.backgroundColor = desenhosRecuperados[index]
+// }
+// }
+// }
