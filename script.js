@@ -1,3 +1,7 @@
+let listaPixel = document.getElementsByClassName('pixel')
+for (let index = 0; index < listaPixel.length; index += 1 ){
+    listaPixel[index].style.backgroundColor = 'white'}
+
 let trocaCorUm = document.getElementById('colorUm')
 let trocaCorDois = document.getElementById('colorDois')
 let trocaCorTres = document.getElementById('colorTres')
@@ -46,9 +50,8 @@ trocaCorQuatro.style.backgroundColor = corQuatro
     
     }
   }
+  
 }
-
-
 
 
 
