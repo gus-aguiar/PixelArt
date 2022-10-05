@@ -29,13 +29,14 @@ function geracor(){
 //     }
 
 // }
-
+let arrayCores = []
 //evento no botão
 const botao = document.getElementById('button-random-color')
 botao.addEventListener("click", function atribuicor (){
     const pegaPaleta = document.getElementsByClassName('color')
     for (let index = 1; index < pegaPaleta.length; index+=1){
         pegaPaleta[index].style.backgroundColor = geracor()
+        arrayCores.push(pegaPaleta[index].style.backgroundColor)
     }
 
 })
