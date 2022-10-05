@@ -144,7 +144,6 @@ let pegaPixel = document.getElementsByClassName('pixel')
 let coresAntigasArray = []
 for(let index = 0 ; index < pegaPixel.length ; index += 1){
 pegaPixel[index].addEventListener('click', function armazenadesenho (){
-  localStorage.removeItem("pixelBoard")
   for (let key = 0 ; key < pegaPixel.length; key += 1){
     coresAntigasArray.push(pegaPixel[key].style.backgroundColor)
     localStorage.setItem("pixelBoard", JSON.stringify(coresAntigasArray))
