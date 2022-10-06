@@ -155,12 +155,19 @@ pegaPixel[index].addEventListener('click', function armazenadesenho (){
 }
 )
 }
-//reprinta desenho
-// window.onload = function(){
-//   if(localStorage.getItem('pixelBoard') !== null){
-//   let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'))
-//   for(let index = 0 ; index < pegaPixel.length ; index += 1){
-//     pegaPixel[index].style.backgroundColor = desenhosRecuperados[index]
-// }
-// }
-// }
+let botaoVQV = document.getElementById('generate-board');
+function apagaGrid() {
+  container.innerHTML = '';
+}
+
+botaoVQV.addEventListener('click', function () {
+  let valorCasas = document.getElementById('board-size').value;
+  if (valorCasas > 0) {
+    apagaGrid();
+    criaCaixas(valorCasas);
+  }
+  if (valorCasas === '') {
+    alert('Board inválido!');
+  }
+  localStorage.removeItem('pixelBoard')
+});
