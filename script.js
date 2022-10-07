@@ -1,6 +1,10 @@
-let listaPixel = document.getElementsByClassName('pixel')
+function pintaBranco(){
+  let listaPixel = document.getElementsByClassName('pixel')
 for (let index = 0; index < listaPixel.length; index += 1 ){
     listaPixel[index].style.backgroundColor = 'white'}
+}
+pintaBranco
+
 
 let trocaCorUm = document.getElementById('colorUm')
 let trocaCorDois = document.getElementById('colorDois')
@@ -62,7 +66,7 @@ function geracor(){
     const b = Math.floor(Math.random() * 256)
     return `rgb(${r}, ${g}, ${b})`
 }
-//evento no botão que gera cores
+//evento no botão que gera cores aleatórias
 const pegaPaleta = document.getElementsByClassName('color')
 const botao = document.getElementById('button-random-color')
 botao.addEventListener("click", function atribuicor (){
@@ -72,7 +76,6 @@ botao.addEventListener("click", function atribuicor (){
 })
 
 
-//apaga localstorage anterior pra não dar conflito ?????????????????? como remover ????????? 
 
 //armazena cores
 let arrayCores = []
@@ -165,9 +168,14 @@ botaoVQV.addEventListener('click', function () {
   if (valorCasas > 0) {
     apagaGrid();
     criaCaixas(valorCasas);
+    pixelAlvo = document.getElementsByClassName('pixel');
+    for (let index = 0; index < pixelAlvo.length; index +=1){
+      pixelAlvo[index].addEventListener('click', selecionapixel);
+    }
   }
   if (valorCasas === '') {
     alert('Board inválido!');
   }
   localStorage.removeItem('pixelBoard')
+
 });
