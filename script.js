@@ -54,7 +54,21 @@ trocaCorQuatro.style.backgroundColor = corQuatro
     
     }
   }
-  
+    if(localStorage.getItem('boardSize') === null){
+      criaCaixas(5);
+      pixelAlvo = document.getElementsByClassName('pixel');
+    for (let index = 0; index < pixelAlvo.length; index +=1){
+      pixelAlvo[index].addEventListener('click', selecionapixel);
+    }
+    }
+    else if (localStorage.getItem('boardSize') !== null){
+      let numeroPixels = JSON.parse(localStorage.getItem('boardSize'))
+      criaCaixas(numeroPixels)
+      pixelAlvo = document.getElementsByClassName('pixel');
+    for (let index = 0; index < pixelAlvo.length; index +=1){
+      pixelAlvo[index].addEventListener('click', selecionapixel);
+    }
+    }
 }
 
 
@@ -106,7 +120,7 @@ function criaCaixas(numero) {
 }
 
 
-criaCaixas(5);
+
 
 // seleciona a cor 
 let corSelecionada = 'black'
@@ -165,6 +179,7 @@ function apagaGrid() {
 
 botaoVQV.addEventListener('click', function () {
   let valorCasas = document.getElementById('board-size').value;
+  localStorage.setItem("boardSize", JSON.stringify(valorCasas))
   if (valorCasas > 5) {
     apagaGrid();
     criaCaixas(valorCasas);
