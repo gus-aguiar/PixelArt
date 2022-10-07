@@ -46,14 +46,7 @@ trocaCorQuatro.style.backgroundColor = corQuatro
       let trocaCorQuatro = document.getElementById('colorQuatro')
     trocaCorQuatro.style.backgroundColor = corQuatro
       }
-      if(localStorage.getItem('pixelBoard') !== null){
-        let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'))
-        for(let index = 0 ; index < pegaPixel.length ; index += 1){
-          pegaPixel[index].style.backgroundColor = desenhosRecuperados[index]
-    
-    
-    }
-  }
+
     if(localStorage.getItem('boardSize') === null){
       criaCaixas(5);
       pixelAlvo = document.getElementsByClassName('pixel');
@@ -69,6 +62,8 @@ trocaCorQuatro.style.backgroundColor = corQuatro
       pixelAlvo[index].addEventListener('click', selecionapixel);
     }
     }
+    
+    
 }
 
 
@@ -158,7 +153,7 @@ function limpaTudo(){
 
 botaoLimpa.addEventListener('click', limpaTudo)
 
-//captura desenho
+// captura desenho
 let pegaPixel = document.getElementsByClassName('pixel')
 let coresAntigasArray = []
 for(let index = 0 ; index < pegaPixel.length ; index += 1){
