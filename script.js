@@ -165,9 +165,25 @@ function apagaGrid() {
 
 botaoVQV.addEventListener('click', function () {
   let valorCasas = document.getElementById('board-size').value;
-  if (valorCasas > 0) {
+  if (valorCasas > 5) {
     apagaGrid();
     criaCaixas(valorCasas);
+    pixelAlvo = document.getElementsByClassName('pixel');
+    for (let index = 0; index < pixelAlvo.length; index +=1){
+      pixelAlvo[index].addEventListener('click', selecionapixel);
+    }
+  }
+  if (valorCasas < 5) {
+    apagaGrid();
+    criaCaixas(5);
+    pixelAlvo = document.getElementsByClassName('pixel');
+    for (let index = 0; index < pixelAlvo.length; index +=1){
+      pixelAlvo[index].addEventListener('click', selecionapixel);
+    }
+  }
+  if (valorCasas > 50) {
+    apagaGrid();
+    criaCaixas(50);
     pixelAlvo = document.getElementsByClassName('pixel');
     for (let index = 0; index < pixelAlvo.length; index +=1){
       pixelAlvo[index].addEventListener('click', selecionapixel);
@@ -179,3 +195,4 @@ botaoVQV.addEventListener('click', function () {
   localStorage.removeItem('pixelBoard')
 
 });
+

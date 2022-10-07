@@ -32,8 +32,8 @@ body {
   }
   
   #pixel-board {
-    width: 500px;
-    height: 500px;
+    width: 90%;
+    height: 90%;
   }
   
   #pixel-board>div {
