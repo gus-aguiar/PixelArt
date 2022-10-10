@@ -6,6 +6,14 @@ for (let index = 0; index < listaPixel.length; index += 1 ){
 pintaBranco
 
 
+if (localStorage.getItem('pixelBoard') !== null) {
+  let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'));
+  for (let index = 0; index < pegaPixel.length; index += 1) {
+    pegaPixel[index].style.backgroundColor = desenhosRecuperados[index];
+  }
+}
+
+
 let trocaCorUm = document.getElementById('colorUm')
 let trocaCorDois = document.getElementById('colorDois')
 let trocaCorTres = document.getElementById('colorTres')
@@ -47,6 +55,7 @@ trocaCorQuatro.style.backgroundColor = corQuatro
     trocaCorQuatro.style.backgroundColor = corQuatro
       }
 
+  
     if(localStorage.getItem('boardSize') === null){
       criaCaixas(5);
       pixelAlvo = document.getElementsByClassName('pixel');
@@ -77,7 +86,7 @@ function geracor(){
 }
 //evento no botão que gera cores aleatórias
 const pegaPaleta = document.getElementsByClassName('color')
-const botao = document.getElementById('button-random-color')
+let botao = document.getElementById('button-random-color')
 botao.addEventListener("click", function atribuicor (){
   for (let index = 1; index < pegaPaleta.length; index+=1){
     pegaPaleta[index].style.backgroundColor = geracor() 
@@ -87,7 +96,6 @@ botao.addEventListener("click", function atribuicor (){
 
 
 //armazena cores
-let arrayCores = []
 botao.addEventListener("click", function armazenaCores(){  
   let arrayCores = []
   for(let index = 1; index < pegaPaleta.length ; index += 1){
@@ -167,6 +175,7 @@ pegaPixel[index].addEventListener('click', function armazenadesenho (){
 }
 )
 }
+
 let botaoVQV = document.getElementById('generate-board');
 function apagaGrid() {
   container.innerHTML = '';
