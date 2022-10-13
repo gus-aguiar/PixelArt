@@ -6,12 +6,12 @@ for (let index = 0; index < listaPixel.length; index += 1 ){
 pintaBranco
 
 
-if (localStorage.getItem('pixelBoard') !== null) {
-  let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'));
-  for (let index = 0; index < pegaPixel.length; index += 1) {
-    pegaPixel[index].style.backgroundColor = desenhosRecuperados[index];
-  }
-}
+// if (localStorage.getItem('pixelBoard') !== null) {
+//   let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'));
+//   for (let index = 0; index < pegaPixel.length; index += 1) {
+//     pegaPixel[index].style.backgroundColor = desenhosRecuperados[index];
+//   }
+// }
 
 
 let trocaCorUm = document.getElementById('colorUm')
@@ -19,6 +19,7 @@ let trocaCorDois = document.getElementById('colorDois')
 let trocaCorTres = document.getElementById('colorTres')
 let trocaCorQuatro = document.getElementById('colorQuatro')
 window.onload = function (){
+  
   if(localStorage.getItem('colorPalette') === null){
 // setando cores inicialmente
 let corUm = 'black'
@@ -58,6 +59,7 @@ trocaCorQuatro.style.backgroundColor = corQuatro
   
     if(localStorage.getItem('boardSize') === null){
       criaCaixas(5);
+      pintaBranco;
       pixelAlvo = document.getElementsByClassName('pixel');
     for (let index = 0; index < pixelAlvo.length; index +=1){
       pixelAlvo[index].addEventListener('click', selecionapixel);
@@ -67,13 +69,31 @@ trocaCorQuatro.style.backgroundColor = corQuatro
     else if (localStorage.getItem('boardSize') !== null){
       let numeroPixels = JSON.parse(localStorage.getItem('boardSize'))
       criaCaixas(numeroPixels)
+      pintaBranco()
       pixelAlvo = document.getElementsByClassName('pixel');
     for (let index = 0; index < pixelAlvo.length; index +=1){
       pixelAlvo[index].addEventListener('click', selecionapixel);
     }
+    for(let index = 0 ; index < pixelAlvo.length ; index += 1){
+      pixelAlvo[index].addEventListener('click', function armazenadesenho (){
+      let coresAntigasArray = []
+      for (let key = 0 ; key < pixelAlvo.length; key += 1){
+        console.log('teste')
+        coresAntigasArray.push(pixelAlvo[key].style.backgroundColor);
+        localStorage.setItem("pixelBoard", JSON.stringify(coresAntigasArray));
+        // let coresAntigasArray = []
+      }
     }
+    )
     
+  }}
     
+  if (localStorage.getItem('pixelBoard') !== null) {
+    let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'));
+    for (let index = 0; index < pegaPixel.length; index += 1) {
+      pegaPixel[index].style.backgroundColor = desenhosRecuperados[index];
+    }
+  }
 }
 
 
@@ -164,19 +184,19 @@ botaoLimpa.addEventListener('click', limpaTudo)
 
 // captura desenho
 
-let pegaPixel = document.querySelectorAll('.pixel')
-for(let index = 0 ; index < pegaPixel.length ; index += 1){
-  pegaPixel[index].addEventListener('click', function armazenadesenho (){
-  let coresAntigasArray = []
-  for (let key = 0 ; key < pegaPixel.length; key += 1){
-    console.log('teste')
-    coresAntigasArray.push(pegaPixel[key].style.backgroundColor);
-    localStorage.setItem("pixelBoard", JSON.stringify(coresAntigasArray));
-    // let coresAntigasArray = []
-  }
-}
-)
-}
+// let pegaPixel = document.querySelectorAll('.pixel')
+// for(let index = 0 ; index < pegaPixel.length ; index += 1){
+//   pegaPixel[index].addEventListener('click', function armazenadesenho (){
+//   let coresAntigasArray = []
+//   for (let key = 0 ; key < pegaPixel.length; key += 1){
+//     console.log('teste')
+//     coresAntigasArray.push(pegaPixel[key].style.backgroundColor);
+//     localStorage.setItem("pixelBoard", JSON.stringify(coresAntigasArray));
+//     // let coresAntigasArray = []
+//   }
+// }
+// )
+// }
 
 let botaoVQV = document.getElementById('generate-board');
 function apagaGrid() {
