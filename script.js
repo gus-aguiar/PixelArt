@@ -164,7 +164,7 @@ botaoLimpa.addEventListener('click', limpaTudo)
 
 // captura desenho
 
-let pegaPixel = document.getElementsByClassName('pixel')
+let pegaPixel = document.querySelectorAll('.pixel')
 for(let index = 0 ; index < pegaPixel.length ; index += 1){
   pegaPixel[index].addEventListener('click', function armazenadesenho (){
   let coresAntigasArray = []
