@@ -59,11 +59,31 @@ trocaCorQuatro.style.backgroundColor = corQuatro
   
     if(localStorage.getItem('boardSize') === null){
       criaCaixas(5);
-      pintaBranco;
+      pintaBranco();
       pixelAlvo = document.getElementsByClassName('pixel');
     for (let index = 0; index < pixelAlvo.length; index +=1){
       pixelAlvo[index].addEventListener('click', selecionapixel);
       pixelAlvo[index].addEventListener('click', selecionapixel);
+    }
+    for(let index = 0 ; index < pixelAlvo.length ; index += 1){
+      pixelAlvo[index].addEventListener('click', function armazenadesenho (){
+        let coresAntigasArray = []
+        for (let key = 0 ; key < pixelAlvo.length; key += 1){
+          console.log('teste')
+          coresAntigasArray.push(pixelAlvo[key].style.backgroundColor);
+          localStorage.setItem("pixelBoard", JSON.stringify(coresAntigasArray));
+          // let coresAntigasArray = []
+        }
+      }
+      )
+      
+      if (localStorage.getItem('pixelBoard') !== null) {
+        let pegaPixel = document.querySelectorAll('.pixel')
+        let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'));
+        for (let index = 0; index < pegaPixel.length; index += 1) {
+          pegaPixel[index].style.backgroundColor = desenhosRecuperados[index];
+        }
+      }
     }
     }
     else if (localStorage.getItem('boardSize') !== null){
@@ -76,24 +96,25 @@ trocaCorQuatro.style.backgroundColor = corQuatro
     }
     for(let index = 0 ; index < pixelAlvo.length ; index += 1){
       pixelAlvo[index].addEventListener('click', function armazenadesenho (){
-      let coresAntigasArray = []
-      for (let key = 0 ; key < pixelAlvo.length; key += 1){
-        console.log('teste')
-        coresAntigasArray.push(pixelAlvo[key].style.backgroundColor);
-        localStorage.setItem("pixelBoard", JSON.stringify(coresAntigasArray));
-        // let coresAntigasArray = []
+        let coresAntigasArray = []
+        for (let key = 0 ; key < pixelAlvo.length; key += 1){
+          console.log('teste')
+          coresAntigasArray.push(pixelAlvo[key].style.backgroundColor);
+          localStorage.setItem("pixelBoard", JSON.stringify(coresAntigasArray));
+          // let coresAntigasArray = []
+        }
       }
-    }
-    )
+      )
+      
+      if (localStorage.getItem('pixelBoard') !== null) {
+        let pegaPixel = document.querySelectorAll('.pixel')
+        let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'));
+        for (let index = 0; index < pegaPixel.length; index += 1) {
+          pegaPixel[index].style.backgroundColor = desenhosRecuperados[index];
+        }
+      }
+    }}
     
-  }}
-    
-  if (localStorage.getItem('pixelBoard') !== null) {
-    let desenhosRecuperados = JSON.parse(localStorage.getItem('pixelBoard'));
-    for (let index = 0; index < pegaPixel.length; index += 1) {
-      pegaPixel[index].style.backgroundColor = desenhosRecuperados[index];
-    }
-  }
 }
 
 
