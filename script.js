@@ -165,9 +165,9 @@ botaoLimpa.addEventListener('click', limpaTudo)
 // captura desenho
 
 let pegaPixel = document.getElementsByClassName('pixel')
-let coresAntigasArray = []
 for(let index = 0 ; index < pegaPixel.length ; index += 1){
-pegaPixel[index].addEventListener('click', function armazenadesenho (){
+  pegaPixel[index].addEventListener('click', function armazenadesenho (){
+  let coresAntigasArray = []
   for (let key = 0 ; key < pegaPixel.length; key += 1){
     console.log('teste')
     coresAntigasArray.push(pegaPixel[key].style.backgroundColor);
